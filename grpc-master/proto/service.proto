@@ -1,0 +1,31 @@
+syntax="proto3";
+package proto;
+
+service DrugService {
+  rpc CreateDrug(Drug) returns (Response) {}
+
+  // Created a new method
+  rpc GetDrug(GetRequest) returns (GetResponse) {}
+}
+
+message Drug {
+  string id = 1;
+  string name = 2;
+  int32 power = 3;
+  
+ 
+}
+
+
+
+// Created a blank get request
+message GetRequest {}
+
+message Response {
+  bool created = 1;
+}
+
+message GetResponse {
+    // Added a pluralised consignment to our generic response message
+    repeated Drug drug = 2;
+  }
